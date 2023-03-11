@@ -23,3 +23,41 @@ Content-Type: {{contentType}}
   "enrollment": [],
   "instructor": []
 }
+
+###
+
+GET http://localhost:5217/api/Courses2
+
+###
+
+GET http://localhost:5217/api/Courses2/1
+
+###
+
+POST http://localhost:5217/api/Courses2
+Content-Type: {{contentType}}
+
+{
+  "courseId": 0,
+  "title": "TEST 123",
+  "credits": 5,
+  "departmentId": 5,
+  "department": null,
+  "enrollment": [],
+  "instructor": []
+}
+
+###
+
+PUT http://localhost:5217/api/Courses2/66
+Content-Type: {{contentType}}
+
+{
+  "courseId": 66,
+  "title": "TEST 456",
+  "departmentId": 5
+}
+
+###
+
+GET http://localhost:5217/api/Courses2/66
