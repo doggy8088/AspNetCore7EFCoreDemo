@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace AspNetCore7EFCoreDemo.Models;
 
@@ -17,9 +18,12 @@ public partial class Department
 
     public int? InstructorId { get; set; }
 
+    [JsonIgnore]
     public byte[] RowVersion { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Course> Course { get; } = new List<Course>();
 
+    [JsonIgnore]
     public virtual Person Instructor { get; set; }
 }

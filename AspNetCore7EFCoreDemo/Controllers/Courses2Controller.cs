@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AspNetCore7EFCoreDemo.Models;
 using AspNetCore7EFCoreDemo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCore7EFCoreDemo.Controllers
 {
@@ -22,7 +23,7 @@ namespace AspNetCore7EFCoreDemo.Controllers
         [HttpGet]
         public IEnumerable<Course> Get()
         {
-            return db.Course.ToList();
+            return db.Course.Include(p => p.Department).ToList();
         }
 
         [HttpGet("{id}")]

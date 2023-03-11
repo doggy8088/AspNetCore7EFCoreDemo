@@ -28,6 +28,7 @@ namespace AspNetCore7EFCoreDemo.Controllers
             {
                 return NotFound();
             }
+
             return await _context.Department.ToListAsync();
         }
 
@@ -90,10 +91,10 @@ namespace AspNetCore7EFCoreDemo.Controllers
                 return Problem("Entity set 'ContosoUniversityContext.Department'  is null.");
             }
 
-            // _context.Department.Add(department);
-            //await _context.SaveChangesAsync();
+            _context.Department.Add(department);
+            await _context.SaveChangesAsync();
 
-            await _context.Procedures.Department_InsertAsync(department.Name, department.Budget, department.StartDate, department.InstructorId);
+            //await _context.Procedures.Department_InsertAsync(department.Name, department.Budget, department.StartDate, department.InstructorId);
 
             return CreatedAtAction("GetDepartment", new { id = department.DepartmentId }, department);
         }
