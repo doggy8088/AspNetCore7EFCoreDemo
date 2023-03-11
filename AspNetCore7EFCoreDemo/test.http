@@ -1,2 +1,25 @@
-GET /api/Courses
+﻿@hostname = localhost
+@port = 7153
+@host = {{hostname}}:{{port}}
+@contentType = application/json
 
+GET https://{{host}}/api/Courses
+
+###
+
+GET https://{{host}}/api/Courses/3
+
+###
+
+PUT https://{{host}}/api/Courses/3
+Content-Type: {{contentType}}
+
+{
+  "courseId": 3,
+  "title": "Git進階版控流程",
+  "credits": 2,
+  "departmentId": 5,
+  "department": null,
+  "enrollment": [],
+  "instructor": []
+}

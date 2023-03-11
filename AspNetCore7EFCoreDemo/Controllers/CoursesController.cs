@@ -22,13 +22,13 @@ namespace AspNetCore7EFCoreDemo.Controllers
 
         // GET: api/Courses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
+        public async Task<ActionResult<IEnumerable<GetCourseInfoResult>>> GetCourse()
         {
           if (_context.Course == null)
           {
               return NotFound();
           }
-            return await _context.Course.ToListAsync();
+            return await _context.Procedures.GetCourseInfoAsync();
         }
 
         // GET: api/Courses/5

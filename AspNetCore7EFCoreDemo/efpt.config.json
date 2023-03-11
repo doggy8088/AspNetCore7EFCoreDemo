@@ -61,6 +61,10 @@
       {
          "Name": "[dbo].[Department_Update]",
          "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetCourseInfo]",
+         "ObjectType": 1
       }
    ],
    "UiHint": "(localdb)\\MSSQLLocalDB.ContosoUniversity",
