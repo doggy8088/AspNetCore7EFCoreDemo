@@ -1,0 +1,85 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "ContosoUniversityContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "AspNetCore7EFCoreDemo",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Course]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CourseInstructor]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Department]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Enrollment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OfficeAssignment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Person]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vwCourseStudentCount]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwCourseStudents]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwDepartmentCourseCount]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[Department_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Department_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Department_Update]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "(localdb)\\MSSQLLocalDB.ContosoUniversity",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
