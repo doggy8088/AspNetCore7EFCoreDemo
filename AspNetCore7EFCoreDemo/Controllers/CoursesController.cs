@@ -20,31 +20,57 @@ namespace AspNetCore7EFCoreDemo.Controllers
             _context = context;
         }
 
+        /*
+         * POST /api/report/login-status
+         * 
+         * HTTP 202 Accepted
+         * Location: /api/report/login-status/1/result
+         * 
+         * GET /api/report/login-status/1/result
+         * 
+         * HTTP 202 Accepted
+         * 
+         * GET /api/report/login-status/1/result
+         * HTTP 302 Found
+         * Location: /api/report/login-status/1/result/1.xlsx
+         * 
+         * 
+         * 
+         * 
+         */
+
+
+        [HttpPost("~/api/login")]
+        public ActionResult Login()
+        {
+            return Ok();
+        }
+
         // GET: api/Courses
-        [HttpGet]
+        [HttpGet(Name = "GetAllCourses")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<IEnumerable<GetCourseInfoResult>>> GetCourse()
         {
-          if (_context.Course == null)
-          {
-              return NotFound();
-          }
+            if (_context.Course == null)
+            {
+                return NotFound();
+            }
             return await _context.Procedures.GetCourseInfoAsync();
         }
 
         // GET: api/Courses/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetCourseById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<Course>> GetCourse(int id)
         {
-          if (_context.Course == null)
-          {
-              return NotFound();
-          }
+            if (_context.Course == null)
+            {
+                return NotFound();
+            }
             var course = await _context.Course.FindAsync(id);
 
             if (course == null)
@@ -93,13 +119,14 @@ namespace AspNetCore7EFCoreDemo.Controllers
         // POST: api/Courses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         [HttpPost]
         public async Task<ActionResult<Course>> PostCourse(Course course)
         {
-          if (_context.Course == null)
-          {
-              return Problem("Entity set 'ContosoUniversityContext.Course'  is null.");
-          }
+            if (_context.Course == null)
+            {
+                return Problem("Entity set 'ContosoUniversityContext.Course'  is null.");
+            }
             _context.Course.Add(course);
             await _context.SaveChangesAsync();
 
