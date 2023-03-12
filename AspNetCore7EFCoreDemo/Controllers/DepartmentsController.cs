@@ -22,6 +22,9 @@ namespace AspNetCore7EFCoreDemo.Controllers
 
         // GET: api/Departments
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()
         {
             if (_context.Department == null)
@@ -34,6 +37,9 @@ namespace AspNetCore7EFCoreDemo.Controllers
 
         // GET: api/Departments/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult<Department>> GetDepartment(int id)
         {
             if (_context.Department == null)
@@ -53,6 +59,10 @@ namespace AspNetCore7EFCoreDemo.Controllers
         // PUT: api/Departments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> PutDepartment(int id, Department department)
         {
             if (id != department.DepartmentId)
@@ -101,6 +111,9 @@ namespace AspNetCore7EFCoreDemo.Controllers
 
         // DELETE: api/Departments/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> DeleteDepartment(int id)
         {
             if (_context.Department == null)

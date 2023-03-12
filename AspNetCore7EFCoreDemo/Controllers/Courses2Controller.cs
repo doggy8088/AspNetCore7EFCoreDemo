@@ -6,6 +6,7 @@ using AspNetCore7EFCoreDemo.Models;
 using AspNetCore7EFCoreDemo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace AspNetCore7EFCoreDemo.Controllers
 {
@@ -27,6 +28,9 @@ namespace AspNetCore7EFCoreDemo.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public ActionResult<Course> Get(int id)
         {
             var item = db.Course.Find(id);
@@ -40,6 +44,8 @@ namespace AspNetCore7EFCoreDemo.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         public ActionResult<Course> Post(Course item)
         {
             db.Course.Add(item);
@@ -49,6 +55,10 @@ namespace AspNetCore7EFCoreDemo.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Put(int id, CourseCreate input)
         {
             if (id != input.CourseId)
@@ -75,6 +85,9 @@ namespace AspNetCore7EFCoreDemo.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Delete(int id)
         {
             var item = db.Course.Find(id);
